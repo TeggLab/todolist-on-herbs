@@ -1,13 +1,11 @@
 FROM node:14.16.0-alpine3.13
 WORKDIR /app
 COPY . .
-RUN cd backend
+WORKDIR /app/backend
 RUN npm install
 EXPOSE 4000
-RUN npm start &
-RUN cd ..
-RUN cd frontend
+WORKDIR /app/frontend
 RUN npm install
 EXPOSE 3000
-RUN pwd
-RUN npm start
+RUN chmod o=x /app/script.sh
+CMD ["/app/script.sh"]
