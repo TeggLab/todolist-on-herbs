@@ -1,5 +1,5 @@
 #!/bin/sh
-cd /app/backend
+cd /todolist/backend
 npm start &
-cd /app/frontend
+cd /todolist/frontend
 npm start

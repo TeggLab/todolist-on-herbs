@@ -1,11 +1,11 @@
 FROM node:14.16.0-alpine3.13
-WORKDIR /app
+WORKDIR /todolist
 COPY . .
-WORKDIR /app/backend
+WORKDIR /todolist/backend
 RUN npm install
 EXPOSE 4000
-WORKDIR /app/frontend
+WORKDIR /todolist/frontend
 RUN npm install
 EXPOSE 3000
-RUN chmod o=x /app/script.sh
-CMD ["/app/script.sh"]
+RUN chmod o=x /todolist/script.sh
+CMD ["/todolist/script.sh"]
