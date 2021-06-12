@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: to-do-list
+spec:
+  selector:
+    matchLabels:
+      app: to-do-list
+  template:
+    metadata:
+      labels:
+        app: to-do-list
+    spec:
+      containers:
+        - name: to-do-list
+          image: thiagosdantas/todolist-on-herbs:v3
+          command: ["/bin/sh"]
+          args: ["-c", "while true; sleep 500; done"]
+          ports:
+            - containerPort: 4000
+              name: frontend
+            - containerPort: 4001
+              name: backend
